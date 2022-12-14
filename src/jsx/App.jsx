@@ -51,7 +51,7 @@ function App() {
         data={dataFigure}
         note=""
         source="UNCTAD calculations based on national statistics."
-        subtitle="Global trade annual trends in good and services between 2018 and 2022"
+        subtitle="Trends for trade in goods and services, annual growth, 2019–2022"
         suffix="%"
         title="Global trade is slowing down"
         ylabel=""

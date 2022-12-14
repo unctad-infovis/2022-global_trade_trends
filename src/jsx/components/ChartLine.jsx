@@ -49,8 +49,8 @@ function LineChart({
   const isVisible = useIsVisible(chartRef, { once: true });
 
   const dummy_data = {
-    data: [{ name: '2018', y: null }, { name: '2019', y: null }, { name: '2020', y: null }, { name: '2021', y: null }, { name: '2022', y: null }],
-    labels: ['2018', '2019', '2020', '2021', '2022'],
+    data: [{ name: '2019', y: null }, { name: '2020', y: null }, { name: '2021', y: null }, { name: '2022', y: null }],
+    labels: ['2019', '2020', '2021', '2022'],
     name: 'Dummy data',
     showInLegend: false,
     xAxis: 1
@@ -68,7 +68,7 @@ function LineChart({
           fontFamily: 'Roboto',
           fontSize: '14px'
         },
-        text: `<em>Source:</em> ${source} <br /><em>Note:</em> <span>Quarterly growth is the quarter over quarter growth rate of seasonally adjusted values. Annual growth refers to the last four quarters. Figures for Q3 2022 are preliminary. Q4 2022 is a <a href="https://unctadstat.unctad.org/en/Nowcasts.html">nowcast</a>.</span>`,
+        text: `<em>Source:</em> ${source} <br /><em>Note:</em> <span>Annual growth refers to the last four quarters. Figures for Q3 2022 are preliminary. Q4 2022 is a <a href="https://unctadstat.unctad.org/en/Nowcasts.html">nowcast</a>.</span>`,
         verticalAlign: 'bottom',
         useHTML: true,
         x: 0
@@ -77,7 +77,7 @@ function LineChart({
         events: {
           load() {
             // eslint-disable-next-line react/no-this-in-sfc
-            this.renderer.image('https://unctad.org/sites/default/files/2022-11/unctad_logo.svg', 5, 15, 80, 100).add();
+            this.renderer.image('https://unctad.org/sites/default/files/2022-11/unctad_logo.svg', 20, 15, 80, 100).add();
             setTimeout(() => {
               // eslint-disable-next-line react/no-this-in-sfc
               this.series.forEach((series) => {
@@ -99,6 +99,7 @@ function LineChart({
             }, 2800);
           }
         },
+        marginLeft: 70,
         height: chartHeight,
         resetZoomButton: {
           theme: {
@@ -130,7 +131,7 @@ function LineChart({
         type: 'line',
         zoomType: 'x'
       },
-      colors: ['#009edb', '#72bf44'],
+      colors: ['#72bf44', '#009edb'],
       credits: {
         enabled: false
       },
@@ -216,7 +217,7 @@ function LineChart({
         rules: [{
           chartOptions: {
             title: {
-              margin: 10
+              margin: 40
             }
           },
           condition: {
@@ -231,7 +232,7 @@ function LineChart({
               layout: 'horizontal'
             },
             title: {
-              margin: 10,
+              margin: 40,
               style: {
                 fontSize: '26px',
                 lineHeight: '30px'
@@ -298,7 +299,7 @@ function LineChart({
           // eslint-disable-next-line react/no-this-in-sfc
           const values = this.points.filter(point => point.series.name !== '').map(point => [point.series.name.split(' (')[0], point.y, point.color]);
           const rows = [];
-          rows.push(values.map(point => `<div><span class="tooltip_label" style="color: ${point[2]}">${(point[0]) ? `${point[0]}: ` : ''}</span><span class="tooltip_value">${roundNr(point[1], 0).toLocaleString('en-US')}${suffix}</span></div>`).join(''));
+          rows.push(values.map(point => `<div><span class="tooltip_label" style="color: ${point[2]}">${(point[0]) ? `${point[0]}: ` : ''}</span><span class="tooltip_value">${roundNr(point[1], 1).toFixed(1).toLocaleString('en-US')}${suffix}</span></div>`).join(''));
           // eslint-disable-next-line react/no-this-in-sfc
           return `<div class="tooltip_container"><h3 class="tooltip_header">${this.x}</h3>${rows}</div>`;
         },
@@ -403,7 +404,7 @@ function LineChart({
           text: null
         }
       }, {
-        categories: ['2018', '2019', '2020', '2021', '2022'],
+        categories: ['2019', '2020', '2021', '2022'],
         labels: {
           allowOverlap: false,
           enabled: true,
