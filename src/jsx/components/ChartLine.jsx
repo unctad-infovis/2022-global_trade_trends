@@ -169,7 +169,7 @@ function LineChart({
             enabled: false,
             formatter() {
               // eslint-disable-next-line react/no-this-in-sfc
-              return `<span style="color: ${this.color}">${roundNr(this.y, 0).toLocaleString('en-US')}</div>`;
+              return `<span style="color: ${this.color}">${roundNr(this.y, 0).toLocaleString('en-US')}${suffix}</div>`;
             },
             style: {
               color: 'rgba(0, 0, 0, 0.8)',
@@ -326,13 +326,78 @@ function LineChart({
           rotation: 0,
           reserveSpace: true,
           useHTML: false,
-          y: 30
+          y: 25
         },
         lineColor: '#ccc',
-        lineWidth: 0,
+        lineWidth: 1,
         opposite: false,
+        tickInterval: 1,
         tickLength: 5,
         tickWidth: 1,
+        plotBands: [{
+          color: '#eee',
+          from: 17.5,
+          to: 18.5,
+          label: {
+            align: 'left',
+            rotation: 90,
+            style: {
+              color: 'rgba(0, 0, 0, 0.8)',
+              fontFamily: 'Roboto',
+              fontSize: '14px',
+              fontWeight: 400
+            },
+            text: 'Preliminary data',
+            verticalAlign: 'middle',
+            x: 15,
+            y: 80
+          }
+        }, {
+          color: '#eee',
+          from: 18.5,
+          to: 19.5,
+          label: {
+            align: 'left',
+            rotation: 90,
+            style: {
+              color: 'rgba(0, 0, 0, 0.8)',
+              fontFamily: 'Roboto',
+              fontSize: '14px',
+              fontWeight: 400
+            },
+            text: 'Nowcasts data',
+            verticalAlign: 'middle',
+            x: 15,
+            y: 80
+          }
+        }],
+
+        plotLines: [{
+          color: 'rgba(124, 112, 103, 0.2)',
+          value: -0.5,
+          width: 1
+        }, {
+          color: 'rgba(124, 112, 103, 0.2)',
+          value: 3.5,
+          width: 1
+        }, {
+          color: 'rgba(124, 112, 103, 0.2)',
+          value: 7.5,
+          width: 1
+        }, {
+          color: 'rgba(124, 112, 103, 0.2)',
+          value: 11.5,
+          width: 1
+        }, {
+          color: 'rgba(124, 112, 103, 0.2)',
+          value: 15.5,
+          width: 1
+        }, {
+          color: 'rgba(124, 112, 103, 0.2)',
+          value: 19.5,
+          width: 1
+        }],
+
         type: 'category',
         title: {
           text: null
@@ -346,11 +411,11 @@ function LineChart({
             color: 'rgba(0, 0, 0, 0.8)',
             fontFamily: 'Roboto',
             fontSize: '14px',
-            fontWeight: 400
+            fontWeight: 600
           },
           rotation: 0,
           reserveSpace: true,
-          y: -0,
+          y: 5,
           useHTML: false
         },
         lineColor: '#ccc',
