@@ -28,7 +28,7 @@ function App() {
   });
 
   useEffect(() => {
-    const data_file = `${(window.location.href.includes('unctad.org')) ? 'https://storage.unctad.org/2022-plastic_trade/' : './'}assets/data/2022-global_trade_trends_figure_12.csv`;
+    const data_file = `${(window.location.href.includes('unctad.org')) ? 'https://storage.unctad.org/2022-global_trade_trends/' : './'}assets/data/2022-global_trade_trends_figure_12.csv`;
     try {
       fetch(data_file)
         .then((response) => {
