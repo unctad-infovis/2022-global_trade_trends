@@ -50,7 +50,7 @@ function App() {
         idx="12"
         data={dataFigure}
         note=""
-        show_first_label={false}
+        show_first_label
         source="UNCTAD calculations based on national statistics."
         subtitle="Trends for trade in goods and services, annual growth, 2019–2022"
         suffix="%"
