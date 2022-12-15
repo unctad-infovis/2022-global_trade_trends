@@ -78,25 +78,25 @@ function LineChart({
           load() {
             // eslint-disable-next-line react/no-this-in-sfc
             this.renderer.image('https://unctad.org/sites/default/files/2022-11/unctad_logo.svg', 20, 15, 80, 100).add();
-            setTimeout(() => {
-              // eslint-disable-next-line react/no-this-in-sfc
-              this.series.forEach((series) => {
-                if (series.name !== 'Dummy data') {
-                  series.points[series.points.length - 1].update({
-                    dataLabels: {
-                      enabled: true,
-                      y: series.points[series.points.length - 1].options.dataLabels.y
-                    }
-                  });
-                  series.points[0].update({
-                    dataLabels: {
-                      enabled: true,
-                      y: series.points[0].options.dataLabels.y
-                    }
-                  });
-                }
-              });
-            }, 2800);
+            // setTimeout(() => {
+            //   // eslint-disable-next-line react/no-this-in-sfc
+            //   this.series.forEach((series) => {
+            //     if (series.name !== 'Dummy data') {
+            //       series.points[series.points.length - 1].update({
+            //         dataLabels: {
+            //           enabled: true,
+            //           y: series.points[series.points.length - 1].options.dataLabels.y
+            //         }
+            //       });
+            //       series.points[0].update({
+            //         dataLabels: {
+            //           enabled: true,
+            //           y: series.points[0].options.dataLabels.y
+            //         }
+            //       });
+            //     }
+            //   });
+            // }, 2800);
           }
         },
         marginLeft: 70,
@@ -337,8 +337,8 @@ function LineChart({
         tickWidth: 1,
         plotBands: [{
           color: '#eee',
-          from: 17.5,
-          to: 18.5,
+          from: 13.5,
+          to: 14.5,
           label: {
             align: 'left',
             rotation: 90,
@@ -355,8 +355,8 @@ function LineChart({
           }
         }, {
           color: '#eee',
-          from: 18.5,
-          to: 19.5,
+          from: 14.5,
+          to: 15.5,
           label: {
             align: 'left',
             rotation: 90,
@@ -372,7 +372,6 @@ function LineChart({
             y: 80
           }
         }],
-
         plotLines: [{
           color: 'rgba(124, 112, 103, 0.2)',
           value: -0.5,
@@ -398,11 +397,10 @@ function LineChart({
           value: 19.5,
           width: 1
         }],
-
-        type: 'category',
         title: {
           text: null
-        }
+        },
+        type: 'category'
       }, {
         categories: ['2019', '2020', '2021', '2022'],
         labels: {
