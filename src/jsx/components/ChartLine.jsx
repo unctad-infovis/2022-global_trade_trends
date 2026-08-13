@@ -77,7 +77,7 @@ function LineChart({
         events: {
           load() {
             // eslint-disable-next-line react/no-this-in-sfc
-            this.renderer.image('https://unctad.org/sites/default/files/2022-11/unctad_logo.svg', 20, 15, 80, 100).add();
+            this.renderer.image(`${window.location.href.includes('unctad.org') ? 'https://storage.unctad.org/2022-global_trade_trends/' : './'}assets/img/unctad_logo.svg`, 20, 15, 80, 100).add();
             // setTimeout(() => {
             //   // eslint-disable-next-line react/no-this-in-sfc
             //   this.series.forEach((series) => {
